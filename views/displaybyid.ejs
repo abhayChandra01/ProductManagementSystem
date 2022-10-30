@@ -1,0 +1,259 @@
+<style type="text/css">
+    .root
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+       
+    }
+    .box
+    {
+        width: 100%;
+        border-radius: 20px;
+        background-color: #E6E6FA; 
+        margin-top: 30px;
+        padding: 30px;
+        box-shadow: 0px 0px 21px black;
+        
+    
+    
+    
+    }
+    .gap
+    {
+        margin-top: 20px;
+    
+    
+    }
+    </style>
+
+
+
+<style type="text/css">
+    
+    .dashboard
+    {
+        background-color: #E6E6FA; 
+        
+        padding: 20px;       
+        height: 630px; 
+    
+    
+    
+    }
+    .gap
+    {
+        margin-top: 20px;
+    
+    
+    }
+    .wd
+    {
+        height: 50px;
+        width: 230px;
+    }
+    </style>
+    
+    <html>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+        </script>
+        <script src="/javascripts/project.js">
+        </script>
+        
+        <title>
+          Admin Dashboard
+        </title>
+          
+          <body style="background-color: #4B0082;">
+
+
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                
+                <div style="font-size: 24px;color: #4B0082;font-weight: bolder;letter-spacing: 2px;">
+                    <img src="/images/product.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Products Management
+            </div>
+            </a>
+            <div style="font-size: 24px;color: #4B0082;font-weight: bolder;letter-spacing: 2px;">
+                <img src="/images/<%=aresult.picture %>" style="border-radius: 30px;width: 50px;height: 50px;">
+                <%=aresult.adminname %>
+            </div>
+        </nav>
+
+    <div class="form-row">
+                              
+        <div class="form-group col-md-2" style="display: flex;align-items: center;justify-content: left;font-size: 24px;color: #4B0082;font-weight: bolder;letter-spacing: 2px;">
+            <div class="dashboard">
+                <div><a type="button" style="font-size: 16px;color: #4B0082;" class="btn btn-light wd" href="/admin/dashboard">Dashboard</a></div>
+                <div><a type="button" style="font-size: 16px;color: #4B0082;" class="btn btn-light wd" href="/products/productinterface">Add Products</a></div>
+                <div><a type="button" style="font-size: 16px;color: #4B0082;" class="btn btn-light wd" href="/products/displayproducts">Products List</a></div>
+                <div><a type="button" style="font-size: 16px;color: #4B0082;" class="btn btn-light wd" href="/products/searchbyid">Search Products</a></div>
+                <div><a type="button" style="font-size: 16px;color: #4B0082;" class="btn btn-light wd" href="/admin/logout">Logout</a></div>
+                
+            </div>
+
+
+        </div>  
+        <div class="form-group col-md-10" style="display: flex;align-items: center;justify-content: center;padding-left: 20px;font-size: 24px;color: #fff;font-weight: bolder;letter-spacing: 2px;">
+
+            
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+            </script>
+            <script src="/javascripts/project.js">
+            </script>
+            
+            <title>
+              Product Interface [Updation]
+            </title>
+              
+              <body style="background-color: #4B0082;">
+                  <form action="/products/updateproduct" method="post">
+                    <input type="hidden" value="<%=result.productid %>" name="productid">
+                    <div class="root"> 
+              
+              <div class="box">
+                  <div class="row">
+                        <div style="padding-left: 20px;font-size: 24px;color: #4B0082;font-weight: bolder;letter-spacing: 2px;">
+                           <img src="/images/product.png" width="40">
+                           UPDATION INTERFACE
+                        </div>
+                        <div style="display: flex;justify-content: right;align-items: center;width: 200;">
+                            <a style="font-weight: bold" class="btn btn-primary" href="/products/displayproducts" role="button">Product List</a>
+    
+                        </div>
+    
+                        
+                  </div>
+    
+                  <div class="row gap" >
+                      <div class="col">
+                          <input required value="<%=result.productname %>" name="productname" type="text" class="form-control" placeholder="Product Name">
+                      </div>
+                    
+                  </div>
+    
+                  <div class="row gap" >
+                    <div class="col">
+                        <input required value="<%=result.productmodel %>" name="productmodel" type="text" class="form-control" placeholder="Product Model">
+                    </div>
+                   
+                 </div>
+    
+                    
+                    
+                    <div class="row gap" >
+                        
+                        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                            
+                            <% if(result.category=="Food"){ %>
+                            <input checked required type="radio" name="category" id="food" value="Food" style="padding: 10px;"> <i style="color: orange; padding: 5px; font-size: 25px;  margin-right: 20px;" class="fas fa-pizza-slice"></i>
+                            <input required type="radio" name="category" id="electronics" value="Electronics" style="padding: 10px;"> <i style="color: black; padding: 5px; font-size: 25px; margin-right: 20px;" class="fas fa-laptop-code"></i>
+                            <%} else if(result.category=="Electronics"){ %>
+                                <input required type="radio" name="category" id="food" value="Food" style="padding: 10px;"> <i style="color: orange; padding: 5px; font-size: 25px;  margin-right: 20px;" class="fas fa-pizza-slice"></i>
+                                <input checked required type="radio" name="category" id="electronics" value="Electronics" style="padding: 10px;"> <i style="color: black; padding: 5px; font-size: 25px; margin-right: 20px;" class="fas fa-laptop-code"></i>
+                            <%} %>
+    
+                                
+                            <input required value="<%=result.gst %>" type="text" name="gst" id="gst" class="form-control" style="width: 60px;" placeholder="GST">
+                        </div>
+                        <div class="col">
+                            <select required class="form-control" name="producttype" id="ptype">
+                            <option value='<%=result.producttypeid %>'><%=result.producttypename %></option>
+    
+                            </select>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="row gap" >
+                        
+                        <div class="col">
+                            <select required class="form-control" name="units" id="units">
+                                <option value='<%=result.unitid %>'><%=result.unitname %></option>
+        
+                            </select>
+                        </div>
+                        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                            
+                            <% if(result.currencytype=="INR"){ %>
+                            <input checked required type="radio" name="currency" id="inr" value="INR" style="padding: 10px;"> <i style="color: darkred; padding: 5px; font-size: 25px;  margin-right: 20px;" class="fas fa-rupee-sign"></i>
+                            <input required type="radio" name="currency" id="usd" value="USD" style="padding: 10px;"> <i style="color: darkblue; padding: 5px; font-size: 25px; margin-right: 20px;" class="fas fa-dollar-sign"></i>
+                            <%} else if(result.currencytype=="USD"){ %>
+                           
+                                <input  required type="radio" name="currency" id="inr" value="INR" style="padding: 10px;"> <i style="color: darkred; padding: 5px; font-size: 25px;  margin-right: 20px;" class="fas fa-rupee-sign"></i>
+                                <input checked required type="radio" name="currency" id="usd" value="USD" style="padding: 10px;"> <i style="color: darkblue; padding: 5px; font-size: 25px; margin-right: 20px;" class="fas fa-dollar-sign"></i>
+                            <%} %>
+                           
+                            <input value="<%=result.price %>" type="text" id="price" name="price" class="form-control" style="width: 60px;" placeholder="Price">
+                        </div>
+                    </div>
+                    
+                    <div class="row gap" >
+                        <div class="col">
+                            <select required class="form-control" name="offer" id="offer">
+                                <% if(result.offertype=="5"){ %>
+                                    <option value="5">Festival Offer</option>
+                                    <%} else if(result.offertype=="15"){ %>
+                                        <option value="15">Exchange Offer</option>
+                                        <%} else if(result.offertype=="2"){ %>
+                                            <option value="2">Weekend Offer</option>
+                                            <%} %>
+                                <option>-Select Offer-</option>
+                                <option value="5">Festival Offer</option>
+                                <option value="15">Exchange Offer</option>
+                                <option value="2">Weekend Offer</option>
+    
+                            </select>
+                       </div>
+                        <div class="col">
+                            <input value="<%=result.offerrate %>" type="text" id="offerrate" name="offerrate" class="form-control" placeholder="Offer Rate">
+                        </div>
+                        
+                    </div>
+    
+    
+                    <div class="row gap" >
+                        <div class="col">
+                            <input value="<%=result.stock %>" required type="text" name="stock" class="form-control" placeholder="Stock">
+                        </div>
+                        <div class="col">
+                            <img src='/images/<%=result.picture %>' width="40">
+                        </div>
+                    </div>
+                    <div class="row gap" >
+                        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                            <button type="submit" name="btn" value="Delete" style="width: 200px;" class="btn btn-danger">Delete</button>
+                        </div>
+                        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                            <button type="submit" name="btn" value="Update" style="width: 200px;" class="btn btn-success">Update</button>
+                        </div>
+                    </div>
+                    <div class="row gap" >
+                        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                        <h3></h3>
+                        </div>
+    
+                    </div>
+                  
+                </div>
+            </div>
+        </form>
+        </body>
+         
+        
+        </div>
+
+
+    </div>
+          
+
+
+
+
+</body>
+    </html>
+
